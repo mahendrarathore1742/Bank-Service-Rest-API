@@ -40,7 +40,7 @@ func (s *APIServer) Run() {
 func (s *APIServer) handleLogin(w http.ResponseWriter, r *http.Request) error {
 
 	if r.Method != "POST" {
-		return fmt.Errorf("Method not allowed %s", r.Method)
+		return fmt.Errorf("method not allowed %s", r.Method)
 	}
 
 	var req LoginRequest
@@ -56,7 +56,7 @@ func (s *APIServer) handleLogin(w http.ResponseWriter, r *http.Request) error {
 	}
 
 	if !acc.ValidatePassowrd(req.Password) {
-		return fmt.Errorf("Not Authenticated")
+		return fmt.Errorf("not authenticated")
 	}
 
 	token, err := createJWT(acc)
@@ -85,7 +85,7 @@ func (s *APIServer) handleAccount(w http.ResponseWriter, r *http.Request) error 
 		return s.handleCreateAccount(w, r)
 	}
 
-	return fmt.Errorf("Method is not allowd %s", r.Method)
+	return fmt.Errorf("method is not allowd %s", r.Method)
 }
 
 // GET Accounts
@@ -119,7 +119,7 @@ func (s *APIServer) handleGetAccountByID(w http.ResponseWriter, r *http.Request)
 		return s.handleDeleteAccount(w, r)
 	}
 
-	return fmt.Errorf("Method is not allowed %s", r.Method)
+	return fmt.Errorf("method is not allowed %s", r.Method)
 
 }
 
@@ -252,7 +252,7 @@ func validateJWT(tokenstring string) (*jwt.Token, error) {
 	return jwt.Parse(tokenstring, func(token *jwt.Token) (interface{}, error) {
 
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-			return nil, fmt.Errorf("Unexpected signing method: %v ", token.Header["alg"])
+			return nil, fmt.Errorf("unexpected signing method: %v ", token.Header["alg"])
 		}
 
 		return []byte(secret), nil
