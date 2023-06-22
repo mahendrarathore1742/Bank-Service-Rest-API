@@ -9,7 +9,7 @@ pull postgres container:-
 ```docker pull postgres```
 
 ## Step 3
-### Run this commend
+### Run this command
 
 ``` 
 docker run --name {dbName} -e POSTGRES_PASSWORD={pass} -d postgres
@@ -26,8 +26,8 @@ pass  = you can define
 
 ## Step 5
 
-```make ```
+```    make       ```
 
 ## Step 6
 
-```make run```
+```   make run    ```
