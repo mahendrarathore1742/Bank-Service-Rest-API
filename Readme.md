@@ -19,15 +19,33 @@ dbName = you can define
 pass  = you can define
 ```
 
+#### command  
+
 ## Step 4
 
-```start telnet localhost 5432```
+```
 
+start telnet localhost 5432
+
+```
+
+#### command  
 
 ## Step 5
 
-```    make       ```
+```  
+
+make  
+
+
+```
+
+#### command  
 
 ## Step 6
 
-```   make run    ```
+```   
+
+make run    
+
+```
